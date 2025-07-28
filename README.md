@@ -1,8 +1,8 @@
 # Online-Course-Management-System
 Low Level Design Implementation of Online Course Management System in Java
 
-Date: 28-07-2025
-Problem Statement
+## Date: 28-07-2025
+## Problem Statement
 Design an Online Course Management System that supports:
 
 User Roles: Student, Instructor
@@ -10,7 +10,7 @@ Course Creation
 Enrollment
 Assignment Upload & Grading
 Role-Based Access Control
-UML Class Diagram
+## UML Class Diagram
 Here's the UML Class Diagram of the system:
 ![WhatsApp Image 2025-07-28 at 10 12 00_aaf8d864](https://github.com/user-attachments/assets/64e91188-ee7d-4347-9d58-aa08f8c8526e)
 
@@ -138,34 +138,34 @@ console.log(`${student2.name}'s Grade:`, assignment1.submissions.get(student2).g
 
 ```
 
-OOP Principles Explained
-Abstraction
+## OOPS Principles Explained
+## Abstraction
 We use abstraction by defining a general User class to represent common user behavior and properties like id, name, email, and shared methods like login() and viewCourses().
 
 Instead of putting all logic in one place, we let Student and Instructor inherit from User and define their own specific actions like uploadAssignment() or createCourse().
 
-Encapsulation
+## Encapsulation
 All sensitive/internal data like score, feedback, and submission are accessed or modified only through specific methods like getScore() or submit().
 
 This protects the internal state of each object and ensures it's only updated in controlled ways.
 
 Rather than allowing direct access to grades or submissions, all updates go through well-defined methods.
 
-Inheritance
+## Inheritance
 Both Student and Instructor classes inherit from the base User class, which means they automatically get shared functionality like login() and viewCourses().
 
 They then extend this behavior by adding their own role-specific methods.
 
 This promotes code reuse and helps maintain a clean, scalable structure.
 
-Polymorphism
+## Polymorphism
 Polymorphism is demonstrated via method overriding — the login() method behaves differently depending on whether it’s called by a Student or an Instructor.
 
 This lets us use the same method name but implement custom logic for each role.
 
 It allows flexible role handling while maintaining a common interface.
 
-SOLID Design Principles
+## SOLID Design Principles
 S — Single Responsibility Principle
 Every class in the system is responsible for a single piece of functionality:
 
@@ -176,26 +176,26 @@ Course: handling enrollment and assignment logic
 Grade: managing scores and feedback
 This separation makes each class easier to understand and maintain.
 
-O — Open/Closed Principle
+## O — Open/Closed Principle
 The system is open to extension but closed to modification.
 
 You can add new features (e.g., an Admin or TeachingAssistant role) by extending existing classes — no need to touch the core logic.
 
 For example, adding support for TAs means just creating a new class.
 
-L — Liskov Substitution Principle
+## L — Liskov Substitution Principle
 Since Student and Instructor inherit from User, you can use either wherever a User is expected.
 
 Substituting subclasses won’t break the system because they conform to the same structure and interface.
 
-I — Interface Segregation Principle
+## I — Interface Segregation Principle
 Even without formal interfaces (like in TypeScript or C#), we give each class only the methods it actually needs.
 
 Student doesn’t handle grading.
 Instructor doesn’t handle assignment submissions.
 This avoids forcing roles to implement irrelevant methods.
 
-D — Dependency Inversion Principle
+## D — Dependency Inversion Principle
 High-level modules like Instructor don’t rely on the low-level implementation details of Assignment or Grade.
 
 Instead, they interact with them through abstracted methods like gradeAssignment().
